@@ -1,1 +1,1 @@
-# MyMIPS
+# Development of the classical 5-stage MIPS core
