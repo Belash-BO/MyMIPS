@@ -11,6 +11,6 @@
 module	adder	(input	[29:0]	PC,
 		 output	[29:0]	PC_plus_4);
 
-	assign PC_plus_4 = PC + 1'b1;
+	assign PC_plus_4 = PC + 1;
   
 endmodule

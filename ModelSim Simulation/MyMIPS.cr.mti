@@ -1,0 +1,15 @@
+D:/git/MyMIPS/Verilog/adder.v {1 {vlog -work work D:/git/MyMIPS/Verilog/adder.v
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module adder
+
+Top level modules:
+	adder
+
+} {} {}} {D:/git/MyMIPS/ModelSim Simulation/adder_tb.v} {1 {vlog -work work {D:/git/MyMIPS/ModelSim Simulation/adder_tb.v}
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module adder_tb
+
+Top level modules:
+	adder_tb
+
+} {} {}}
