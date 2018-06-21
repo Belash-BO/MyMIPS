@@ -1,43 +1,48 @@
 m255
 K3
+z0
 13
 cModel Technology
-Z0 dD:\Quartus_13
-vadder
+dD:\Quartus_13
+vreg_file
+Z0 !s110 1529590884
 !i10b 1
-!s100 4XDK9cia`OFLDlJ=DBIkK1
-I`CUde:E9T5m7`d0fR;5f;2
-V6ono[Hg]Pm]>QPH0?kORz2
-Z1 dD:\git\MyMIPS\ModelSim Simulation
-w1528047449
-8D:/git/MyMIPS/Verilog/adder.v
-FD:/git/MyMIPS/Verilog/adder.v
-L0 11
-Z2 OV;L;10.1d;51
+!s100 YUMJl8>fRGEld<F4@Wg]e3
+IP:LTa^@UdBfSCKBSU<AR13
+Z1 VDg1SIo80bB@j0V0VzS_@n1
+Z2 dD:/git/MyMIPS/ModelSim Simulation
+w1529589829
+8D:/git/MyMIPS/Verilog/reg_file.v
+FD:/git/MyMIPS/Verilog/reg_file.v
+L0 22
+Z3 OV;L;10.5b;63
 r1
 !s85 0
 31
-!s108 1528054012.949000
-!s107 D:/git/MyMIPS/Verilog/adder.v|
-!s90 -reportprogress|300|-work|work|D:/git/MyMIPS/Verilog/adder.v|
-!s101 -O0
-Z3 o-work work -O0
-vadder_tb
-Z4 IlXc@?_5:i4ZhL^6WHA=5A0
-Z5 V@PWZ`nm1DTWcO[XZMBPnd3
+Z4 !s108 1529590884.000000
+!s107 D:/git/MyMIPS/Verilog/reg_file.v|
+!s90 -reportprogress|300|-work|work|-stats=none|D:/git/MyMIPS/Verilog/reg_file.v|
+!i113 1
+Z5 o-work work
+Z6 tCvgOpt 0
+vreg_file_tb
+R0
+!i10b 1
+!s100 HSDIHA9zl_jK^NnMN2agR0
+IF]0WLL@jImcBSQXn?ilX]2
 R1
-Z6 w1528053635
-Z7 8D:/git/MyMIPS/ModelSim Simulation/adder_tb.v
-Z8 FD:/git/MyMIPS/ModelSim Simulation/adder_tb.v
-L0 11
 R2
-r1
-31
+w1529590879
+8D:/git/MyMIPS/ModelSim Simulation/reg_file_tb.v
+FD:/git/MyMIPS/ModelSim Simulation/reg_file_tb.v
+Z7 L0 11
 R3
-!i10b 1
-Z9 !s100 D0NRLFf^Z9R5E`A:JW50N3
+r1
 !s85 0
-Z10 !s108 1528054012.759000
-Z11 !s107 D:/git/MyMIPS/ModelSim Simulation/adder_tb.v|
-Z12 !s90 -reportprogress|300|-work|work|D:/git/MyMIPS/ModelSim Simulation/adder_tb.v|
-!s101 -O0
+31
+R4
+!s107 D:/git/MyMIPS/ModelSim Simulation/reg_file_tb.v|
+!s90 -reportprogress|300|-work|work|-stats=none|D:/git/MyMIPS/ModelSim Simulation/reg_file_tb.v|
+!i113 1
+R5
+R6

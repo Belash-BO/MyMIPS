@@ -1,5 +1,5 @@
 Flow report for MyMIPS
-Sun Jun 03 22:23:58 2018
+Thu Jun 21 16:55:42 2018
 Quartus II 64-Bit Version 13.0.0 Build 156 04/24/2013 SJ Full Version
 
 
@@ -40,18 +40,18 @@ applicable agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Flow Summary                                                                     ;
 +------------------------------------+---------------------------------------------+
-; Flow Status                        ; Successful - Sun Jun 03 22:23:58 2018       ;
+; Flow Status                        ; Successful - Thu Jun 21 16:55:42 2018       ;
 ; Quartus II 64-Bit Version          ; 13.0.0 Build 156 04/24/2013 SJ Full Version ;
 ; Revision Name                      ; MyMIPS                                      ;
-; Top-level Entity Name              ; adder                                       ;
+; Top-level Entity Name              ; reg_file                                    ;
 ; Family                             ; Cyclone II                                  ;
 ; Device                             ; EP2C35F672C6                                ;
 ; Timing Models                      ; Final                                       ;
-; Total logic elements               ; 29 / 33,216 ( < 1 % )                       ;
-;     Total combinational functions  ; 29 / 33,216 ( < 1 % )                       ;
-;     Dedicated logic registers      ; 0 / 33,216 ( 0 % )                          ;
-; Total registers                    ; 0                                           ;
-; Total pins                         ; 60 / 475 ( 13 % )                           ;
+; Total logic elements               ; 1,403 / 33,216 ( 4 % )                      ;
+;     Total combinational functions  ; 1,403 / 33,216 ( 4 % )                      ;
+;     Dedicated logic registers      ; 992 / 33,216 ( 3 % )                        ;
+; Total registers                    ; 992                                         ;
+; Total pins                         ; 113 / 475 ( 24 % )                          ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0 / 483,840 ( 0 % )                         ;
 ; Embedded Multiplier 9-bit elements ; 0 / 70 ( 0 % )                              ;
@@ -64,7 +64,7 @@ applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 06/03/2018 22:23:13 ;
+; Start date & time ; 06/21/2018 16:54:47 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; MyMIPS              ;
 +-------------------+---------------------+
@@ -75,16 +75,16 @@ applicable agreement for further details.
 +-------------------------------------+---------------------------------+---------------+-------------+----------------+
 ; Assignment Name                     ; Value                           ; Default Value ; Entity Name ; Section Id     ;
 +-------------------------------------+---------------------------------+---------------+-------------+----------------+
-; COMPILER_SIGNATURE_ID               ; 260535862553918.152805379215348 ; --            ; --          ; --             ;
+; COMPILER_SIGNATURE_ID               ; 123532103127540.152958928606720 ; --            ; --          ; --             ;
 ; EDA_OUTPUT_DATA_FORMAT              ; Verilog Hdl                     ; --            ; --          ; eda_simulation ;
 ; EDA_SIMULATION_TOOL                 ; ModelSim-Altera (Verilog)       ; <None>        ; --          ; --             ;
 ; MAX_CORE_JUNCTION_TEMP              ; 85                              ; --            ; --          ; --             ;
 ; MIN_CORE_JUNCTION_TEMP              ; 0                               ; --            ; --          ; --             ;
-; PARTITION_COLOR                     ; 16764057                        ; --            ; adder       ; Top            ;
-; PARTITION_FITTER_PRESERVATION_LEVEL ; PLACEMENT_AND_ROUTING           ; --            ; adder       ; Top            ;
-; PARTITION_NETLIST_TYPE              ; SOURCE                          ; --            ; adder       ; Top            ;
+; PARTITION_COLOR                     ; 16764057                        ; --            ; reg_file    ; Top            ;
+; PARTITION_FITTER_PRESERVATION_LEVEL ; PLACEMENT_AND_ROUTING           ; --            ; reg_file    ; Top            ;
+; PARTITION_NETLIST_TYPE              ; SOURCE                          ; --            ; reg_file    ; Top            ;
 ; PROJECT_OUTPUT_DIRECTORY            ; output_files                    ; --            ; --          ; --             ;
-; TOP_LEVEL_ENTITY                    ; adder                           ; MyMIPS        ; --          ; --             ;
+; TOP_LEVEL_ENTITY                    ; reg_file                        ; MyMIPS        ; --          ; --             ;
 +-------------------------------------+---------------------------------+---------------+-------------+----------------+
 
 
@@ -93,12 +93,12 @@ applicable agreement for further details.
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name               ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis      ; 00:00:06     ; 1.0                     ; 4612 MB             ; 00:00:03                           ;
-; Fitter                    ; 00:00:19     ; 1.1                     ; 5088 MB             ; 00:00:13                           ;
-; Assembler                 ; 00:00:05     ; 1.0                     ; 4593 MB             ; 00:00:04                           ;
-; TimeQuest Timing Analyzer ; 00:00:04     ; 1.0                     ; 4588 MB             ; 00:00:03                           ;
-; EDA Netlist Writer        ; 00:00:01     ; 1.0                     ; 4540 MB             ; 00:00:01                           ;
-; Total                     ; 00:00:35     ; --                      ; --                  ; 00:00:24                           ;
+; Analysis & Synthesis      ; 00:00:20     ; 1.0                     ; 436 MB              ; 00:00:19                           ;
+; Fitter                    ; 00:00:21     ; 1.6                     ; 1070 MB             ; 00:00:27                           ;
+; Assembler                 ; 00:00:04     ; 1.0                     ; 433 MB              ; 00:00:04                           ;
+; TimeQuest Timing Analyzer ; 00:00:02     ; 1.0                     ; 447 MB              ; 00:00:03                           ;
+; EDA Netlist Writer        ; 00:00:03     ; 1.0                     ; 400 MB              ; 00:00:03                           ;
+; Total                     ; 00:00:50     ; --                      ; --                  ; 00:00:56                           ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
@@ -107,11 +107,11 @@ applicable agreement for further details.
 +---------------------------+------------------+-----------+------------+----------------+
 ; Module Name               ; Machine Hostname ; OS Name   ; OS Version ; Processor type ;
 +---------------------------+------------------+-----------+------------+----------------+
-; Analysis & Synthesis      ; DESKTOP-HLKGSH1  ; Windows 7 ; 6.2        ; x86_64         ;
-; Fitter                    ; DESKTOP-HLKGSH1  ; Windows 7 ; 6.2        ; x86_64         ;
-; Assembler                 ; DESKTOP-HLKGSH1  ; Windows 7 ; 6.2        ; x86_64         ;
-; TimeQuest Timing Analyzer ; DESKTOP-HLKGSH1  ; Windows 7 ; 6.2        ; x86_64         ;
-; EDA Netlist Writer        ; DESKTOP-HLKGSH1  ; Windows 7 ; 6.2        ; x86_64         ;
+; Analysis & Synthesis      ; KMD-RUSIN-VP-N   ; Windows 7 ; 6.1        ; x86_64         ;
+; Fitter                    ; KMD-RUSIN-VP-N   ; Windows 7 ; 6.1        ; x86_64         ;
+; Assembler                 ; KMD-RUSIN-VP-N   ; Windows 7 ; 6.1        ; x86_64         ;
+; TimeQuest Timing Analyzer ; KMD-RUSIN-VP-N   ; Windows 7 ; 6.1        ; x86_64         ;
+; EDA Netlist Writer        ; KMD-RUSIN-VP-N   ; Windows 7 ; 6.1        ; x86_64         ;
 +---------------------------+------------------+-----------+------------+----------------+
 
 

@@ -1,5 +1,5 @@
 Analysis & Synthesis report for MyMIPS
-Sun Jun 03 22:23:20 2018
+Thu Jun 21 16:55:06 2018
 Quartus II 64-Bit Version 13.0.0 Build 156 04/24/2013 SJ Full Version
 
 
@@ -13,9 +13,12 @@ Quartus II 64-Bit Version 13.0.0 Build 156 04/24/2013 SJ Full Version
   5. Analysis & Synthesis Source Files Read
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
-  8. General Register Statistics
-  9. Elapsed Time Per Partition
- 10. Analysis & Synthesis Messages
+  8. Registers Removed During Synthesis
+  9. General Register Statistics
+ 10. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 11. Elapsed Time Per Partition
+ 12. Analysis & Synthesis Messages
+ 13. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -41,16 +44,16 @@ applicable agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Sun Jun 03 22:23:19 2018       ;
+; Analysis & Synthesis Status        ; Successful - Thu Jun 21 16:55:05 2018       ;
 ; Quartus II 64-Bit Version          ; 13.0.0 Build 156 04/24/2013 SJ Full Version ;
 ; Revision Name                      ; MyMIPS                                      ;
-; Top-level Entity Name              ; adder                                       ;
+; Top-level Entity Name              ; reg_file                                    ;
 ; Family                             ; Cyclone II                                  ;
-; Total logic elements               ; 29                                          ;
-;     Total combinational functions  ; 29                                          ;
-;     Dedicated logic registers      ; 0                                           ;
-; Total registers                    ; 0                                           ;
-; Total pins                         ; 60                                          ;
+; Total logic elements               ; 2,395                                       ;
+;     Total combinational functions  ; 1,403                                       ;
+;     Dedicated logic registers      ; 992                                         ;
+; Total registers                    ; 992                                         ;
+; Total pins                         ; 113                                         ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0                                           ;
 ; Embedded Multiplier 9-bit elements ; 0                                           ;
@@ -64,7 +67,7 @@ applicable agreement for further details.
 ; Option                                                                     ; Setting            ; Default Value      ;
 +----------------------------------------------------------------------------+--------------------+--------------------+
 ; Device                                                                     ; EP2C35F672C6       ;                    ;
-; Top-level entity name                                                      ; adder              ; MyMIPS             ;
+; Top-level entity name                                                      ; reg_file           ; MyMIPS             ;
 ; Family name                                                                ; Cyclone II         ; Cyclone IV GX      ;
 ; Use smart compilation                                                      ; Off                ; Off                ;
 ; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On                 ; On                 ;
@@ -149,7 +152,7 @@ applicable agreement for further details.
 ; Processors                 ; Number      ;
 +----------------------------+-------------+
 ; Number detected on machine ; 4           ;
-; Maximum allowed            ; 2           ;
+; Maximum allowed            ; 4           ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
 ; Maximum used               ; 1           ;
@@ -160,43 +163,43 @@ applicable agreement for further details.
 +----------------------------+-------------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                ;
-+----------------------------------+-----------------+------------------------+-------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path  ; Library ;
-+----------------------------------+-----------------+------------------------+-------------------------------+---------+
-; ../Verilog/adder.v               ; yes             ; User Verilog HDL File  ; D:/git/MyMIPS/Verilog/adder.v ;         ;
-+----------------------------------+-----------------+------------------------+-------------------------------+---------+
++--------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                   ;
++----------------------------------+-----------------+------------------------+----------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path     ; Library ;
++----------------------------------+-----------------+------------------------+----------------------------------+---------+
+; ../Verilog/reg_file.v            ; yes             ; User Verilog HDL File  ; D:/git/MyMIPS/Verilog/reg_file.v ;         ;
++----------------------------------+-----------------+------------------------+----------------------------------+---------+
 
 
-+------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary          ;
-+---------------------------------------------+--------+
-; Resource                                    ; Usage  ;
-+---------------------------------------------+--------+
-; Estimated Total logic elements              ; 29     ;
-;                                             ;        ;
-; Total combinational functions               ; 29     ;
-; Logic element usage by number of LUT inputs ;        ;
-;     -- 4 input functions                    ; 0      ;
-;     -- 3 input functions                    ; 1      ;
-;     -- <=2 input functions                  ; 28     ;
-;                                             ;        ;
-; Logic elements by mode                      ;        ;
-;     -- normal mode                          ; 1      ;
-;     -- arithmetic mode                      ; 28     ;
-;                                             ;        ;
-; Total registers                             ; 0      ;
-;     -- Dedicated logic registers            ; 0      ;
-;     -- I/O registers                        ; 0      ;
-;                                             ;        ;
-; I/O pins                                    ; 60     ;
-; Embedded Multiplier 9-bit elements          ; 0      ;
-; Maximum fan-out node                        ; Add0~0 ;
-; Maximum fan-out                             ; 2      ;
-; Total fan-out                               ; 88     ;
-; Average fan-out                             ; 0.99   ;
-+---------------------------------------------+--------+
++-----------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary         ;
++---------------------------------------------+-------+
+; Resource                                    ; Usage ;
++---------------------------------------------+-------+
+; Estimated Total logic elements              ; 2,395 ;
+;                                             ;       ;
+; Total combinational functions               ; 1403  ;
+; Logic element usage by number of LUT inputs ;       ;
+;     -- 4 input functions                    ; 1327  ;
+;     -- 3 input functions                    ; 70    ;
+;     -- <=2 input functions                  ; 6     ;
+;                                             ;       ;
+; Logic elements by mode                      ;       ;
+;     -- normal mode                          ; 1403  ;
+;     -- arithmetic mode                      ; 0     ;
+;                                             ;       ;
+; Total registers                             ; 992   ;
+;     -- Dedicated logic registers            ; 992   ;
+;     -- I/O registers                        ; 0     ;
+;                                             ;       ;
+; I/O pins                                    ; 113   ;
+; Embedded Multiplier 9-bit elements          ; 0     ;
+; Maximum fan-out node                        ; clk   ;
+; Maximum fan-out                             ; 992   ;
+; Total fan-out                               ; 8570  ;
+; Average fan-out                             ; 3.42  ;
++---------------------------------------------+-------+
 
 
 +-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -204,9 +207,50 @@ applicable agreement for further details.
 +----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+
 ; Compilation Hierarchy Node ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name ; Library Name ;
 +----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+
-; |adder                     ; 29 (29)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 60   ; 0            ; |adder              ;              ;
+; |reg_file                  ; 1403 (1403)       ; 992 (992)    ; 0           ; 0            ; 0       ; 0         ; 113  ; 0            ; |reg_file           ;              ;
 +----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++---------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                              ;
++----------------------------------------+----------------------------------------+
+; Register name                          ; Reason for Removal                     ;
++----------------------------------------+----------------------------------------+
+; mem[0][0]                              ; Stuck at GND due to stuck port data_in ;
+; mem[0][1]                              ; Stuck at GND due to stuck port data_in ;
+; mem[0][2]                              ; Stuck at GND due to stuck port data_in ;
+; mem[0][3]                              ; Stuck at GND due to stuck port data_in ;
+; mem[0][4]                              ; Stuck at GND due to stuck port data_in ;
+; mem[0][5]                              ; Stuck at GND due to stuck port data_in ;
+; mem[0][6]                              ; Stuck at GND due to stuck port data_in ;
+; mem[0][7]                              ; Stuck at GND due to stuck port data_in ;
+; mem[0][8]                              ; Stuck at GND due to stuck port data_in ;
+; mem[0][9]                              ; Stuck at GND due to stuck port data_in ;
+; mem[0][10]                             ; Stuck at GND due to stuck port data_in ;
+; mem[0][11]                             ; Stuck at GND due to stuck port data_in ;
+; mem[0][12]                             ; Stuck at GND due to stuck port data_in ;
+; mem[0][13]                             ; Stuck at GND due to stuck port data_in ;
+; mem[0][14]                             ; Stuck at GND due to stuck port data_in ;
+; mem[0][15]                             ; Stuck at GND due to stuck port data_in ;
+; mem[0][16]                             ; Stuck at GND due to stuck port data_in ;
+; mem[0][17]                             ; Stuck at GND due to stuck port data_in ;
+; mem[0][18]                             ; Stuck at GND due to stuck port data_in ;
+; mem[0][19]                             ; Stuck at GND due to stuck port data_in ;
+; mem[0][20]                             ; Stuck at GND due to stuck port data_in ;
+; mem[0][21]                             ; Stuck at GND due to stuck port data_in ;
+; mem[0][22]                             ; Stuck at GND due to stuck port data_in ;
+; mem[0][23]                             ; Stuck at GND due to stuck port data_in ;
+; mem[0][24]                             ; Stuck at GND due to stuck port data_in ;
+; mem[0][25]                             ; Stuck at GND due to stuck port data_in ;
+; mem[0][26]                             ; Stuck at GND due to stuck port data_in ;
+; mem[0][27]                             ; Stuck at GND due to stuck port data_in ;
+; mem[0][28]                             ; Stuck at GND due to stuck port data_in ;
+; mem[0][29]                             ; Stuck at GND due to stuck port data_in ;
+; mem[0][30]                             ; Stuck at GND due to stuck port data_in ;
+; mem[0][31]                             ; Stuck at GND due to stuck port data_in ;
+; Total Number of Removed Registers = 32 ;                                        ;
++----------------------------------------+----------------------------------------+
 
 
 +------------------------------------------------------+
@@ -214,14 +258,24 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 0     ;
+; Total registers                              ; 992   ;
 ; Number of registers using Synchronous Clear  ; 0     ;
 ; Number of registers using Synchronous Load   ; 0     ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 0     ;
+; Number of registers using Clock Enable       ; 992   ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                           ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
+; 32:1               ; 32 bits   ; 672 LEs       ; 640 LEs              ; 32 LEs                 ; No         ; |reg_file|Mux32            ;
+; 32:1               ; 32 bits   ; 672 LEs       ; 640 LEs              ; 32 LEs                 ; No         ; |reg_file|Mux65            ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
 
 
 +-------------------------------+
@@ -229,7 +283,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:01     ;
+; Top            ; 00:00:17     ;
 +----------------+--------------+
 
 
@@ -239,22 +293,94 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 13.0.0 Build 156 04/24/2013 SJ Full Version
-    Info: Processing started: Sun Jun 03 22:23:11 2018
+    Info: Processing started: Thu Jun 21 16:54:45 2018
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off MyMIPS -c MyMIPS
-Info (11104): Parallel Compilation has detected 4 hyper-threaded processors. However, the extra hyper-threaded processors will not be used by default. Parallel Compilation will use 2 of the 2 physical processors detected instead.
-Info (12021): Found 1 design units, including 1 entities, in source file /git/mymips/verilog/adder.v
-    Info (12023): Found entity 1: adder
-Info (12127): Elaborating entity "adder" for the top level hierarchy
+Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info (12021): Found 1 design units, including 1 entities, in source file /git/mymips/verilog/reg_file.v
+    Info (12023): Found entity 1: reg_file
+Info (12127): Elaborating entity "reg_file" for the top level hierarchy
+Warning (13044): Always-enabled tri-state buffer(s) removed
+    Warning (13045): Converted the fanout from the always-enabled tri-state buffer "bus_a[0]" to the node "bus_a[0]" into a wire
+    Warning (13045): Converted the fanout from the always-enabled tri-state buffer "bus_a[1]" to the node "bus_a[1]" into a wire
+    Warning (13045): Converted the fanout from the always-enabled tri-state buffer "bus_a[2]" to the node "bus_a[2]" into a wire
+    Warning (13045): Converted the fanout from the always-enabled tri-state buffer "bus_a[3]" to the node "bus_a[3]" into a wire
+    Warning (13045): Converted the fanout from the always-enabled tri-state buffer "bus_a[4]" to the node "bus_a[4]" into a wire
+    Warning (13045): Converted the fanout from the always-enabled tri-state buffer "bus_a[5]" to the node "bus_a[5]" into a wire
+    Warning (13045): Converted the fanout from the always-enabled tri-state buffer "bus_a[6]" to the node "bus_a[6]" into a wire
+    Warning (13045): Converted the fanout from the always-enabled tri-state buffer "bus_a[7]" to the node "bus_a[7]" into a wire
+    Warning (13045): Converted the fanout from the always-enabled tri-state buffer "bus_a[8]" to the node "bus_a[8]" into a wire
+    Warning (13045): Converted the fanout from the always-enabled tri-state buffer "bus_a[9]" to the node "bus_a[9]" into a wire
+    Warning (13045): Converted the fanout from the always-enabled tri-state buffer "bus_a[10]" to the node "bus_a[10]" into a wire
+    Warning (13045): Converted the fanout from the always-enabled tri-state buffer "bus_a[11]" to the node "bus_a[11]" into a wire
+    Warning (13045): Converted the fanout from the always-enabled tri-state buffer "bus_a[12]" to the node "bus_a[12]" into a wire
+    Warning (13045): Converted the fanout from the always-enabled tri-state buffer "bus_a[13]" to the node "bus_a[13]" into a wire
+    Warning (13045): Converted the fanout from the always-enabled tri-state buffer "bus_a[14]" to the node "bus_a[14]" into a wire
+    Warning (13045): Converted the fanout from the always-enabled tri-state buffer "bus_a[15]" to the node "bus_a[15]" into a wire
+    Warning (13045): Converted the fanout from the always-enabled tri-state buffer "bus_a[16]" to the node "bus_a[16]" into a wire
+    Warning (13045): Converted the fanout from the always-enabled tri-state buffer "bus_a[17]" to the node "bus_a[17]" into a wire
+    Warning (13045): Converted the fanout from the always-enabled tri-state buffer "bus_a[18]" to the node "bus_a[18]" into a wire
+    Warning (13045): Converted the fanout from the always-enabled tri-state buffer "bus_a[19]" to the node "bus_a[19]" into a wire
+    Warning (13045): Converted the fanout from the always-enabled tri-state buffer "bus_a[20]" to the node "bus_a[20]" into a wire
+    Warning (13045): Converted the fanout from the always-enabled tri-state buffer "bus_a[21]" to the node "bus_a[21]" into a wire
+    Warning (13045): Converted the fanout from the always-enabled tri-state buffer "bus_a[22]" to the node "bus_a[22]" into a wire
+    Warning (13045): Converted the fanout from the always-enabled tri-state buffer "bus_a[23]" to the node "bus_a[23]" into a wire
+    Warning (13045): Converted the fanout from the always-enabled tri-state buffer "bus_a[24]" to the node "bus_a[24]" into a wire
+    Warning (13045): Converted the fanout from the always-enabled tri-state buffer "bus_a[25]" to the node "bus_a[25]" into a wire
+    Warning (13045): Converted the fanout from the always-enabled tri-state buffer "bus_a[26]" to the node "bus_a[26]" into a wire
+    Warning (13045): Converted the fanout from the always-enabled tri-state buffer "bus_a[27]" to the node "bus_a[27]" into a wire
+    Warning (13045): Converted the fanout from the always-enabled tri-state buffer "bus_a[28]" to the node "bus_a[28]" into a wire
+    Warning (13045): Converted the fanout from the always-enabled tri-state buffer "bus_a[29]" to the node "bus_a[29]" into a wire
+    Warning (13045): Converted the fanout from the always-enabled tri-state buffer "bus_a[30]" to the node "bus_a[30]" into a wire
+    Warning (13045): Converted the fanout from the always-enabled tri-state buffer "bus_a[31]" to the node "bus_a[31]" into a wire
+    Warning (13045): Converted the fanout from the always-enabled tri-state buffer "bus_b[0]" to the node "bus_b[0]" into a wire
+    Warning (13045): Converted the fanout from the always-enabled tri-state buffer "bus_b[1]" to the node "bus_b[1]" into a wire
+    Warning (13045): Converted the fanout from the always-enabled tri-state buffer "bus_b[2]" to the node "bus_b[2]" into a wire
+    Warning (13045): Converted the fanout from the always-enabled tri-state buffer "bus_b[3]" to the node "bus_b[3]" into a wire
+    Warning (13045): Converted the fanout from the always-enabled tri-state buffer "bus_b[4]" to the node "bus_b[4]" into a wire
+    Warning (13045): Converted the fanout from the always-enabled tri-state buffer "bus_b[5]" to the node "bus_b[5]" into a wire
+    Warning (13045): Converted the fanout from the always-enabled tri-state buffer "bus_b[6]" to the node "bus_b[6]" into a wire
+    Warning (13045): Converted the fanout from the always-enabled tri-state buffer "bus_b[7]" to the node "bus_b[7]" into a wire
+    Warning (13045): Converted the fanout from the always-enabled tri-state buffer "bus_b[8]" to the node "bus_b[8]" into a wire
+    Warning (13045): Converted the fanout from the always-enabled tri-state buffer "bus_b[9]" to the node "bus_b[9]" into a wire
+    Warning (13045): Converted the fanout from the always-enabled tri-state buffer "bus_b[10]" to the node "bus_b[10]" into a wire
+    Warning (13045): Converted the fanout from the always-enabled tri-state buffer "bus_b[11]" to the node "bus_b[11]" into a wire
+    Warning (13045): Converted the fanout from the always-enabled tri-state buffer "bus_b[12]" to the node "bus_b[12]" into a wire
+    Warning (13045): Converted the fanout from the always-enabled tri-state buffer "bus_b[13]" to the node "bus_b[13]" into a wire
+    Warning (13045): Converted the fanout from the always-enabled tri-state buffer "bus_b[14]" to the node "bus_b[14]" into a wire
+    Warning (13045): Converted the fanout from the always-enabled tri-state buffer "bus_b[15]" to the node "bus_b[15]" into a wire
+    Warning (13045): Converted the fanout from the always-enabled tri-state buffer "bus_b[16]" to the node "bus_b[16]" into a wire
+    Warning (13045): Converted the fanout from the always-enabled tri-state buffer "bus_b[17]" to the node "bus_b[17]" into a wire
+    Warning (13045): Converted the fanout from the always-enabled tri-state buffer "bus_b[18]" to the node "bus_b[18]" into a wire
+    Warning (13045): Converted the fanout from the always-enabled tri-state buffer "bus_b[19]" to the node "bus_b[19]" into a wire
+    Warning (13045): Converted the fanout from the always-enabled tri-state buffer "bus_b[20]" to the node "bus_b[20]" into a wire
+    Warning (13045): Converted the fanout from the always-enabled tri-state buffer "bus_b[21]" to the node "bus_b[21]" into a wire
+    Warning (13045): Converted the fanout from the always-enabled tri-state buffer "bus_b[22]" to the node "bus_b[22]" into a wire
+    Warning (13045): Converted the fanout from the always-enabled tri-state buffer "bus_b[23]" to the node "bus_b[23]" into a wire
+    Warning (13045): Converted the fanout from the always-enabled tri-state buffer "bus_b[24]" to the node "bus_b[24]" into a wire
+    Warning (13045): Converted the fanout from the always-enabled tri-state buffer "bus_b[25]" to the node "bus_b[25]" into a wire
+    Warning (13045): Converted the fanout from the always-enabled tri-state buffer "bus_b[26]" to the node "bus_b[26]" into a wire
+    Warning (13045): Converted the fanout from the always-enabled tri-state buffer "bus_b[27]" to the node "bus_b[27]" into a wire
+    Warning (13045): Converted the fanout from the always-enabled tri-state buffer "bus_b[28]" to the node "bus_b[28]" into a wire
+    Warning (13045): Converted the fanout from the always-enabled tri-state buffer "bus_b[29]" to the node "bus_b[29]" into a wire
+    Warning (13045): Converted the fanout from the always-enabled tri-state buffer "bus_b[30]" to the node "bus_b[30]" into a wire
+    Warning (13045): Converted the fanout from the always-enabled tri-state buffer "bus_b[31]" to the node "bus_b[31]" into a wire
+Info (144001): Generated suppressed messages file D:/git/MyMIPS/Quartus II Synthesis/output_files/MyMIPS.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 89 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 30 input pins
-    Info (21059): Implemented 30 output pins
-    Info (21061): Implemented 29 logic cells
-Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 0 warnings
-    Info: Peak virtual memory: 4623 megabytes
-    Info: Processing ended: Sun Jun 03 22:23:20 2018
-    Info: Elapsed time: 00:00:09
-    Info: Total CPU time (on all processors): 00:00:03
+Info (21057): Implemented 2508 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 49 input pins
+    Info (21059): Implemented 64 output pins
+    Info (21061): Implemented 2395 logic cells
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 65 warnings
+    Info: Peak virtual memory: 446 megabytes
+    Info: Processing ended: Thu Jun 21 16:55:06 2018
+    Info: Elapsed time: 00:00:21
+    Info: Total CPU time (on all processors): 00:00:20
+
+
++------------------------------------------+
+; Analysis & Synthesis Suppressed Messages ;
++------------------------------------------+
+The suppressed messages can be found in D:/git/MyMIPS/Quartus II Synthesis/output_files/MyMIPS.map.smsg.
 
 
