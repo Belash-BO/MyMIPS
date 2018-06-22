@@ -1,14 +1,38 @@
-`timescale 1ns / 1ps
+/*
+	Shifter
 
-module Shifter	(input		[31:0]	Data,
-		 input		[1:0]	SRO,
+	Contains: extender
+
+	Implemented with multiplexers and wiring
+	Shift Operation can be: SLL, SRL, SRA, or ROR
+	Input Data is extended to 63 bits according to Shift Op
+	The 63 bits are shifted right according to S4 S3 S2 S1 S0
+
+	The wiring of the above shifter dictates a right shift
+	We can convert a left shift into a right shift
+	For SLL, 31 zeros are appended to the right of data
+	To shift left by 0 is equivalent to shifting right by 31
+	To shift left by 1 is equivalent to shifting right by 30
+	To shift left by 31 is equivalent to shifting right by 0
+	For SLL use the 1’s complement of the shift amount
+	ROL is equivalent to ROR if we use (32 – rotate amount)
+	ROL by 10 bits is equivalent to ROR by (32–10) = 22 bits
+	Software can convert ROL to ROR
+
+	Developed by Bogdan Belash.
+	6/2018
+
+*/
+
+module shifter	(input		[31:0]	data,
+		 input		[1:0]	shift_op,
 		 input		[4:0]	SA,
-		 output reg	[31:0]	Result);
+		 output reg	[31:0]	result);
 
-		 wire [62:0] Result1;
+		 wire [62:0] ext_data;
 		 reg [4:0] SAsll;
-		 reg [46:0] in1;
-		 reg [38:0] in2;
+		 reg [46:0] S4;
+		 reg [38:0] S3;
 		 reg [34:0] in3;
 		 reg [32:0] in4;
 

@@ -1,71 +1,89 @@
-`timescale 1ns / 1ps
+/*
+	Extender
 
-module Extender	(input		[31:0]	Data,
-		 input		[1:0]	SRO,
-		 output reg	[62:0]	Result);
+	
+	Input data is extended to 63 bits according to shift_op
+	The 63 bits are shifted right according to S4 S3 S2 S1 S0
 
-	always @(SRO, Data) begin
-		case (SRO)
-			0: Result = SLL(Data);
-			1: Result = SRA(Data);
-			2: Result = SRL(Data);
-			3: Result = ROR(Data);
-			default: Result =  2'b00;
+	Input data is extended from 32 to 63 bits as follows:
+ 	If shift_op = SRL then ext_data[62:0] = {31{0}} 	|| data[31:0]
+ 	If shift_op = SRA then ext_data[62:0] = {31{data[31]}}	|| data[31:0]
+ 	If shift_op = ROR then ext_data[62:0] = data[30:0] 	|| data[31:0]
+ 	If shift_op = SLL then ext_data[62:0] = data[31:0] 	|| {31{0}}
+	For SRL, the 32-bit input data is zero-extended to 63 bits
+	For SRA, the 32-bit input data is sign-extended to 63 bits
+	For ROR, 31-bit extension = lower 31 bits of data
+	Then, shift right according to the shift amount
+	As the extended data is shifted right, the upper bits will be: 0 (SRL), sign-bit (SRA), or lower bits of data (ROR)
+
+	The wiring of the above shifter dictates a right shift
+	We can convert a left shift into a right shift
+	For SLL, 31 zeros are appended to the right of data
+	To shift left by 0 is equivalent to shifting right by 31
+	To shift left by 1 is equivalent to shifting right by 30
+	To shift left by 31 is equivalent to shifting right by 0
+	For SLL use the 1’s complement of the shift amount
+	ROL is equivalent to ROR if we use (32 – rotate amount)
+	ROL by 10 bits is equivalent to ROR by (32–10) = 22 bits
+	Software can convert ROL to ROR
+
+	Developed by Bogdan Belash.
+	6/2018
+
+*/
+
+module extender	(input		[31:0]	data,
+		 input		[1:0]	shift_op,
+		 output reg	[62:0]	ext_data);
+
+	always @(*) begin
+		case (shift_op)
+			2'b00: ext_data = SLL(data);
+			2'b01: ext_data = SRA(data);
+			2'b10: ext_data = SRL(data);
+			2'b11: ext_data = ROR(data);
+			default: ext_data =  63'b0;
 		endcase
 	end
 
 	function [62:0] SLL;
-		input	[31:0]	Data;
+		input	[31:0]	data;
 		reg	[62:0]	rsll;
-
 		begin
-
-			rsll[62:31] = Data;
+			rsll[62:31] = data;
 			rsll[30:0] = 31'b0;
-
-			SLL = rsll;	
-		
+			SLL = rsll;		
 		end	
 	endfunction
 
 	function [62:0] SRA;
-		input [31:0] Data; 
+		input [31:0] data; 
 		reg [62:0] rsra; 
-
 		begin 	
-
-			rsra[31:0] = Data; 
-			rsra[62:32] = {31{Data[31:31]}};	
-			
+			rsra[31:0] = data; 
+			rsra[62:32] = {31{data[31]}};	
 			SRA = rsra;
 		end	
 	endfunction
 
 	function [62:0] SRL;
-		input	[31:0]	Data;
+		input	[31:0]	data;
 		reg	[62:0]	rsrl;
-
 		begin
-
-			rsrl[31:0] = Data;
+			rsrl[31:0] = data;
 			rsrl[62:32] = 31'b0;
-
-			SRL = rsrl;	
-		
+			SRL = rsrl;			
 		end	
 	endfunction
 
 	function [62:0] ROR;
-		input	[31:0]	Data;
+		input	[31:0]	data;
 		reg	[62:0]	rror;
-
 		begin
-
-			rror[31:0] = Data;
-			rror[62:32] = Data[30:0];
-
-			ROR = rror;	
-		
+			rror[31:0] = data[31:0];
+			rror[62:32] = data[30:0];
+			ROR = rror;		
 		end	
 	endfunction
+
 endmodule
