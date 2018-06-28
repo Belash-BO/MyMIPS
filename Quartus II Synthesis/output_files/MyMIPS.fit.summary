@@ -1,15 +1,15 @@
-Fitter Status : Successful - Thu Jun 21 16:55:27 2018
+Fitter Status : Successful - Thu Jun 28 16:08:17 2018
 Quartus II 64-Bit Version : 13.0.0 Build 156 04/24/2013 SJ Full Version
 Revision Name : MyMIPS
-Top-level Entity Name : reg_file
+Top-level Entity Name : shifter
 Family : Cyclone II
 Device : EP2C35F672C6
 Timing Models : Final
-Total logic elements : 1,403 / 33,216 ( 4 % )
-    Total combinational functions : 1,403 / 33,216 ( 4 % )
-    Dedicated logic registers : 992 / 33,216 ( 3 % )
-Total registers : 992
-Total pins : 113 / 475 ( 24 % )
+Total logic elements : 280 / 33,216 ( < 1 % )
+    Total combinational functions : 280 / 33,216 ( < 1 % )
+    Dedicated logic registers : 0 / 33,216 ( 0 % )
+Total registers : 0
+Total pins : 71 / 475 ( 15 % )
 Total virtual pins : 0
 Total memory bits : 0 / 483,840 ( 0 % )
 Embedded Multiplier 9-bit elements : 0 / 70 ( 0 % )

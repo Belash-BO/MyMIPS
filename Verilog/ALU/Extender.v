@@ -36,54 +36,21 @@ module extender	(input		[31:0]	data,
 		 input		[1:0]	shift_op,
 		 output reg	[62:0]	ext_data);
 
+	wire [62:0] SLL, SRA, SRL, ROR;
+
 	always @(*) begin
 		case (shift_op)
-			2'b00: ext_data = SLL(data);
-			2'b01: ext_data = SRA(data);
-			2'b10: ext_data = SRL(data);
-			2'b11: ext_data = ROR(data);
+			2'b00: ext_data = SLL;
+			2'b01: ext_data = SRA;
+			2'b10: ext_data = SRL;
+			2'b11: ext_data = ROR;
 			default: ext_data =  63'b0;
 		endcase
 	end
 
-	function [62:0] SLL;
-		input	[31:0]	data;
-		reg	[62:0]	rsll;
-		begin
-			rsll[62:31] = data;
-			rsll[30:0] = 31'b0;
-			SLL = rsll;		
-		end	
-	endfunction
-
-	function [62:0] SRA;
-		input [31:0] data; 
-		reg [62:0] rsra; 
-		begin 	
-			rsra[31:0] = data; 
-			rsra[62:32] = {31{data[31]}};	
-			SRA = rsra;
-		end	
-	endfunction
-
-	function [62:0] SRL;
-		input	[31:0]	data;
-		reg	[62:0]	rsrl;
-		begin
-			rsrl[31:0] = data;
-			rsrl[62:32] = 31'b0;
-			SRL = rsrl;			
-		end	
-	endfunction
-
-	function [62:0] ROR;
-		input	[31:0]	data;
-		reg	[62:0]	rror;
-		begin
-			rror[31:0] = data[31:0];
-			rror[62:32] = data[30:0];
-			ROR = rror;		
-		end	
-	endfunction
-
+	assign SLL = {data, 31'b0};
+	assign SRA = {{31{data[31]}}, data};
+	assign SRL = {31'b0, data};
+	assign ROR = {data[30:0], data};
+	
 endmodule

@@ -10,6 +10,7 @@
 
 	The wiring of the above shifter dictates a right shift
 	We can convert a left shift into a right shift
+
 	For SLL, 31 zeros are appended to the right of data
 	To shift left by 0 is equivalent to shifting right by 31
 	To shift left by 1 is equivalent to shifting right by 30
@@ -26,29 +27,28 @@
 
 module shifter	(input		[31:0]	data,
 		 input		[1:0]	shift_op,
-		 input		[4:0]	SA,
-		 output reg	[31:0]	result);
+		 input		[4:0]	shift_amount,
+		 output 	[31:0]	result);
 
 		 wire [62:0] ext_data;
-		 reg [4:0] SAsll;
-		 reg [46:0] S4;
-		 reg [38:0] S3;
-		 reg [34:0] in3;
-		 reg [32:0] in4;
+		 wire [4:0] sa_sll;
+		 wire [46:0] in1;
+		 wire [38:0] in2;
+		 wire [34:0] in3;
+		 wire [32:0] in4;
 
-Extender Shifter (.SRO(SRO), .Data(Data), .Result(Result1));
+extender extender_1 (.shift_op(shift_op), .data(data), .ext_data(ext_data));
 
-	always @(*) begin
-		SAsll = {5{(~(SRO[1:1] | SRO[0:0]))}} ^ SA;
-		
-		in1 = SAsll[4] ? Result1[62:16] : Result1[46:0];
+	assign  sa_sll = {5{(~(shift_op[1] | shift_op[0]))}} ^ shift_amount;
 
-		in2 = SAsll[3] ? in1[46:8] : in1[38:0];
+	assign	in1 = sa_sll[4] ? ext_data[62:16] : ext_data[46:0];
+
+	assign	in2 = sa_sll[3] ? in1[46:8] : in1[38:0];
 	
-		in3 = SAsll[2] ? in2[38:4] : in2[34:0];
+	assign	in3 = sa_sll[2] ? in2[38:4] : in2[34:0];
 
-		in4 = SAsll[1] ? in3[34:2] : in3[32:0];
+	assign	in4 = sa_sll[1] ? in3[34:2] : in3[32:0];
 
-		Result = SAsll[0] ? in4[32:1] : in4[31:0];
-	end
+	assign	result = sa_sll[0] ? in4[32:1] : in4[31:0];
+
 endmodule					

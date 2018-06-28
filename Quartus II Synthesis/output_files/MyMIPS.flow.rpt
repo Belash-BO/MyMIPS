@@ -1,5 +1,5 @@
 Flow report for MyMIPS
-Thu Jun 21 16:55:42 2018
+Thu Jun 28 16:08:29 2018
 Quartus II 64-Bit Version 13.0.0 Build 156 04/24/2013 SJ Full Version
 
 
@@ -40,18 +40,18 @@ applicable agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Flow Summary                                                                     ;
 +------------------------------------+---------------------------------------------+
-; Flow Status                        ; Successful - Thu Jun 21 16:55:42 2018       ;
+; Flow Status                        ; Successful - Thu Jun 28 16:08:29 2018       ;
 ; Quartus II 64-Bit Version          ; 13.0.0 Build 156 04/24/2013 SJ Full Version ;
 ; Revision Name                      ; MyMIPS                                      ;
-; Top-level Entity Name              ; reg_file                                    ;
+; Top-level Entity Name              ; shifter                                     ;
 ; Family                             ; Cyclone II                                  ;
 ; Device                             ; EP2C35F672C6                                ;
 ; Timing Models                      ; Final                                       ;
-; Total logic elements               ; 1,403 / 33,216 ( 4 % )                      ;
-;     Total combinational functions  ; 1,403 / 33,216 ( 4 % )                      ;
-;     Dedicated logic registers      ; 992 / 33,216 ( 3 % )                        ;
-; Total registers                    ; 992                                         ;
-; Total pins                         ; 113 / 475 ( 24 % )                          ;
+; Total logic elements               ; 280 / 33,216 ( < 1 % )                      ;
+;     Total combinational functions  ; 280 / 33,216 ( < 1 % )                      ;
+;     Dedicated logic registers      ; 0 / 33,216 ( 0 % )                          ;
+; Total registers                    ; 0                                           ;
+; Total pins                         ; 71 / 475 ( 15 % )                           ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0 / 483,840 ( 0 % )                         ;
 ; Embedded Multiplier 9-bit elements ; 0 / 70 ( 0 % )                              ;
@@ -64,28 +64,28 @@ applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 06/21/2018 16:54:47 ;
+; Start date & time ; 06/28/2018 16:08:00 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; MyMIPS              ;
 +-------------------+---------------------+
 
 
-+----------------------------------------------------------------------------------------------------------------------+
-; Flow Non-Default Global Settings                                                                                     ;
-+-------------------------------------+---------------------------------+---------------+-------------+----------------+
-; Assignment Name                     ; Value                           ; Default Value ; Entity Name ; Section Id     ;
-+-------------------------------------+---------------------------------+---------------+-------------+----------------+
-; COMPILER_SIGNATURE_ID               ; 123532103127540.152958928606720 ; --            ; --          ; --             ;
-; EDA_OUTPUT_DATA_FORMAT              ; Verilog Hdl                     ; --            ; --          ; eda_simulation ;
-; EDA_SIMULATION_TOOL                 ; ModelSim-Altera (Verilog)       ; <None>        ; --          ; --             ;
-; MAX_CORE_JUNCTION_TEMP              ; 85                              ; --            ; --          ; --             ;
-; MIN_CORE_JUNCTION_TEMP              ; 0                               ; --            ; --          ; --             ;
-; PARTITION_COLOR                     ; 16764057                        ; --            ; reg_file    ; Top            ;
-; PARTITION_FITTER_PRESERVATION_LEVEL ; PLACEMENT_AND_ROUTING           ; --            ; reg_file    ; Top            ;
-; PARTITION_NETLIST_TYPE              ; SOURCE                          ; --            ; reg_file    ; Top            ;
-; PROJECT_OUTPUT_DIRECTORY            ; output_files                    ; --            ; --          ; --             ;
-; TOP_LEVEL_ENTITY                    ; reg_file                        ; MyMIPS        ; --          ; --             ;
-+-------------------------------------+---------------------------------+---------------+-------------+----------------+
++---------------------------------------------------------------------------------------------------------------------+
+; Flow Non-Default Global Settings                                                                                    ;
++-------------------------------------+--------------------------------+---------------+-------------+----------------+
+; Assignment Name                     ; Value                          ; Default Value ; Entity Name ; Section Id     ;
++-------------------------------------+--------------------------------+---------------+-------------+----------------+
+; COMPILER_SIGNATURE_ID               ; 80136654592904.153019128003836 ; --            ; --          ; --             ;
+; EDA_OUTPUT_DATA_FORMAT              ; Verilog Hdl                    ; --            ; --          ; eda_simulation ;
+; EDA_SIMULATION_TOOL                 ; ModelSim-Altera (Verilog)      ; <None>        ; --          ; --             ;
+; MAX_CORE_JUNCTION_TEMP              ; 85                             ; --            ; --          ; --             ;
+; MIN_CORE_JUNCTION_TEMP              ; 0                              ; --            ; --          ; --             ;
+; PARTITION_COLOR                     ; 16764057                       ; --            ; shifter     ; Top            ;
+; PARTITION_FITTER_PRESERVATION_LEVEL ; PLACEMENT_AND_ROUTING          ; --            ; shifter     ; Top            ;
+; PARTITION_NETLIST_TYPE              ; SOURCE                         ; --            ; shifter     ; Top            ;
+; PROJECT_OUTPUT_DIRECTORY            ; output_files                   ; --            ; --          ; --             ;
+; TOP_LEVEL_ENTITY                    ; shifter                        ; MyMIPS        ; --          ; --             ;
++-------------------------------------+--------------------------------+---------------+-------------+----------------+
 
 
 +-------------------------------------------------------------------------------------------------------------------------------+
@@ -93,12 +93,12 @@ applicable agreement for further details.
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name               ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis      ; 00:00:20     ; 1.0                     ; 436 MB              ; 00:00:19                           ;
-; Fitter                    ; 00:00:21     ; 1.6                     ; 1070 MB             ; 00:00:27                           ;
-; Assembler                 ; 00:00:04     ; 1.0                     ; 433 MB              ; 00:00:04                           ;
-; TimeQuest Timing Analyzer ; 00:00:02     ; 1.0                     ; 447 MB              ; 00:00:03                           ;
-; EDA Netlist Writer        ; 00:00:03     ; 1.0                     ; 400 MB              ; 00:00:03                           ;
-; Total                     ; 00:00:50     ; --                      ; --                  ; 00:00:56                           ;
+; Analysis & Synthesis      ; 00:00:04     ; 1.0                     ; 429 MB              ; 00:00:04                           ;
+; Fitter                    ; 00:00:12     ; 1.5                     ; 1048 MB             ; 00:00:15                           ;
+; Assembler                 ; 00:00:04     ; 1.0                     ; 425 MB              ; 00:00:04                           ;
+; TimeQuest Timing Analyzer ; 00:00:03     ; 1.0                     ; 422 MB              ; 00:00:02                           ;
+; EDA Netlist Writer        ; 00:00:01     ; 1.0                     ; 374 MB              ; 00:00:01                           ;
+; Total                     ; 00:00:24     ; --                      ; --                  ; 00:00:26                           ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
